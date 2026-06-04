@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barnard PL Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fafaf7;
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #2a5298;
+      --accent-light: #e8edf8;
+      --border: #ddd;
+      --nav-height: 56px;
+      --max-width: 760px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .site-title {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      margin-right: auto;
+    }
+
+    nav a.nav-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0 14px;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    nav a.nav-link:hover,
+    nav a.nav-link.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── PAGES ── */
+    .page {
+      display: none;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 48px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+    }
+
+    /* ── COMMENT PLACEHOLDER STYLE ── */
+    .placeholder {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-style: italic;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ── PUBLICATION ENTRY ── */
+    .pub-entry {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-entry:last-child {
+      border-bottom: none;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pub-authors {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 4px;
+    }
+
+    .pub-venue {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .pub-links {
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+
+    /* ── TEAM MEMBER ── */
+    .team-member {
+      margin-bottom: 16px;
+    }
+
+    .team-member .name {
+      font-weight: 600;
+    }
+
+    .team-member .role {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    /* ── EVENT ENTRY ── */
+    .event-entry {
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
+    }
+
+    .event-date {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+
+    /* ── CONTACT FORM AREA ── */
+    .contact-info {
+      margin-top: 8px;
+    }
+
+    .contact-info p {
+      margin-bottom: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="site-title" href="#" onclick="showPage('about')">Barnard PL Labs</a>
+    <a class="nav-link active" href="#" onclick="showPage('about')">About</a>
+    <a class="nav-link" href="#" onclick="showPage('research')">Research</a>
+    <a class="nav-link" href="#" onclick="showPage('events')">Events</a>
+    <a class="nav-link" href="#" onclick="showPage('publications')">Publications</a>
+    <a class="nav-link" href="#" onclick="showPage('team')">Team</a>
+    <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════ -->
+<main>
+  <section class="page active" id="page-about">
+    <h1>About</h1>
+
+    <p>
+      Barnard PL (Programming Languages) Labs is run by
+      <a href="http://www.marksantolucito.com/">Prof. Mark Santolucito</a>
+      at <a href="https://cs.barnard.edu/">Barnard College, Columbia University</a>.
+    </p>
+
+    <!-- ADD: A sentence or two about the lab's overarching mission/research focus -->
+    <div class="placeholder">[ Add a brief lab mission statement here. ]</div>
+
+    <!-- ADD: Any additional context about the lab's approach, values, or history -->
+    <div class="placeholder">[ Add any additional introductory content here. ]</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       RESEARCH
+  ════════════════════════════════════════════ -->
+  <section class="page" id="page-research">
+    <h1>Research</h1>
+
+    <!-- ADD: Optional one-paragraph overview of the lab's research themes -->
+    <div class="placeholder">[ Add a short overview of the lab's research themes here. ]</div>
+
+    <h2>TSL</h2>
+    <p>
+      Temporal Stream Logic allows users to give specifications about how a program should behave
+      over time, and then automatically synthesize a program that is guaranteed to meet that
+      specification. The current goal of this work is to build a TSL-to-Arduino pipeline.
+    </p>
+    <ul>
+      <li><a href="https://barnard-pl-labs.github.io/tsl-api/">TSL API</a> — TSL synthesis on a serverless cloud infrastructure, enabling easy experimentation without local installs.</li>
+      <li><a href="https://barnard-pl-labs.github.io/moveCube/">TSL Move Cube</a> — A TSL playground focused on interactive animations.</li>
+      <li><a href="https://ravenrothkopf.com/snakeTSL/">The Snake</a> — A reactive controller for the Snake game synthesized with TSL.</li>
+      <li><a href="https://barnard-pl-labs.github.io/tslBlocks/">Block-based Editor for Temporal Logic Program Synthesis</a> — Lowering the barrier to entry for writing TSL specifications.</li>
+      <li><a href="http://tslsynthesissynthesizer.com/">Interactive Reactive Synthesis for Music Synthesizers with TSL</a></li>
+      <li><a href="https://github.com/Barnard-PL-Labs/temos">TSL-MT (TSL-Modulo Theories)</a> — A synthesis engine now integrated into the mainline <a href="https://github.com/Barnard-PL-Labs/tsltools">tsltools repo</a>.</li>
+    </ul>
+
+    <h2>Static Analysis for IaC</h2>
+    <p>
+      The goal of this project is to build static analysis tools for cost analysis of
+      Infrastructure as Code (IaC). In particular, in order to statically predict the costs of
+      an IaC deployment, usage estimates are provided by users — enabling what-if analyses such
+      as: what if my website traffic increases threefold, or processes half as much data?
+    </p>
+    <ul>
+      <li><a href="https://github.com/Barnard-PL-Labs/IaCAnalysis.git">Static Analysis for IaC Tool</a></li>
+    </ul>
+
+    <h2>Spiral Analysis</h2>
+    <p>
+      The goal of this project is to migrate legacy medical software to a new computing
+      infrastructure, while maintaining guarantees about its clinically-relevant behavior.
+      We are focused on the Spiral Analysis tool from Dr. Seth Pullman's lab, which quantifies
+      upper limb tremor disorders.
+    </p>
+    <p><em>No public link at this time.</em></p>
+
+    <!-- ADD: Add new projects here following the same <h2> / <p> / <ul> pattern -->
+    <div class="placeholder">[ Add new or additional projects here. ]</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EVENTS
+  ════════════════════════════════════════════ -->
+  <section class="page" id="page-events">
+    <h1>Events</h1>
+
+    <!-- ADD: Intro sentence about lab talks, workshops, or appearances if desired -->
+    <div class="placeholder">[ Optional: Add a brief intro about lab events, talks, or workshops. ]</div>
+
+    <h2>Upcoming</h2>
+
+    <!-- ADD: Upcoming events in the format below.
+         Example entry:
+         <div class="event-entry">
+           <div class="event-date">Jun 2026</div>
+           <div>
+             <strong>Event Name</strong><br>
+             Venue / Conference Name, Location.
+             <a href="#">Link</a>
+           </div>
+         </div>
+    -->
+    <div class="placeholder">[ Add upcoming events here. ]</div>
+
+    <h2>Past</h2>
+
+    <!-- ADD: Past events using the same format as above -->
+    <div class="placeholder">[ Add past events here. ]</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PUBLICATIONS
+  ════════════════════════════════════════════ -->
+  <section class="page" id="page-publications">
+    <h1>Publications</h1>
+
+    <p>
+      See also: <a href="http://www.marksantolucito.com/research.html">Prof. Santolucito's full paper list</a>.
+    </p>
+
+    <!-- ADD: Publications as <div class="pub-entry"> blocks.
+         Example entry:
+         <div class="pub-entry">
+           <div class="pub-title">Paper Title Here</div>
+           <div class="pub-authors">Author One, Author Two, Mark Santolucito</div>
+           <div class="pub-venue">Conference / Journal Name, Year</div>
+           <div class="pub-links">
+             <a href="#">PDF</a> &middot; <a href="#">Code</a>
+           </div>
+         </div>
+    -->
+    <div class="placeholder">[ Add publication entries here. ]</div>
+
+    <h2>Archived Projects</h2>
+    <ul>
+      <li><a href="http://161.35.14.211/">Synthesis-enabled Live Coding</a></li>
+      <!-- ADD: Additional archived project links here -->
+    </ul>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TEAM
+  ════════════════════════════════════════════ -->
+  <section class="page" id="page-team">
+    <h1>Team</h1>
+
+    <h2>Faculty</h2>
+    <div class="team-member">
+      <div class="name"><a href="http://www.marksantolucito.com/">Prof. Mark Santolucito</a></div>
+      <div class="role">Principal Investigator, Barnard College</div>
+    </div>
+
+    <h2>Current Students</h2>
+    <!-- ADD: Current students using the format below.
+         Example:
+         <div class="team-member">
+           <div class="name"><a href="#">Student Name</a></div>
+           <div class="role">PhD Student / Undergraduate Researcher / etc.</div>
+         </div>
+    -->
+    <div class="placeholder">[ Add current students here. ]</div>
+
+    <h2>Alumni</h2>
+    <!-- ADD: Former lab members and their current positions.
+         Example:
+         <div class="team-member">
+           <div class="name">Alumni Name</div>
+           <div class="role">Now at: Company / Program</div>
+         </div>
+    -->
+    <div class="placeholder">[ Add lab alumni here. ]</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════════ -->
+  <section class="page" id="page-contact">
+    <h1>Contact</h1>
+
+    <!-- ADD: A brief note about who to contact and for what (e.g. prospective students, collaborators) -->
+    <div class="placeholder">[ Add a brief note about how and why to get in touch. ]</div>
+
+    <div class="contact-info">
+      <p>
+        <strong>Prof. Mark Santolucito</strong><br>
+        Barnard College, Columbia University<br>
+        Department of Computer Science
+      </p>
+
+      <!-- ADD: Email address -->
+      <p><strong>Email:</strong> <!-- ADD EMAIL HERE --></p>
+
+      <!-- ADD: Office location / office hours if applicable -->
+      <div class="placeholder">[ Add office location and/or office hours here. ]</div>
+
+      <!-- ADD: Links to GitHub org, Twitter/X, or other relevant profiles -->
+      <div class="placeholder">[ Add links to lab GitHub, social profiles, or other contact channels. ]</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Barnard PL Labs &mdash; Barnard College, Columbia University
+</footer>
+
+<script>
+  // ── Year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ── Page navigation
+  function showPage(name) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // Show target
+    document.getElementById('page-' + name).classList.add('active');
+    // Update nav active state
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('onclick').includes("'" + name + "'"));
+    });
+    // Scroll to top
+    window.scrollTo(0, 0);
+  }
+
+  // ── Handle browser back/forward via hash
+  function handleHash() {
+    const hash = window.location.hash.replace('#', '') || 'about';
+    const valid = ['about', 'research', 'events', 'publications', 'team', 'contact'];
+    if (valid.includes(hash)) showPage(hash);
+  }
+
+  // Update hash on nav click
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const match = this.getAttribute('onclick').match(/'(\w+)'/);
+      if (match) {
+        history.pushState(null, '', '#' + match[1]);
+        showPage(match[1]);
+      }
+    });
+  });
+
+  document.querySelector('.site-title').addEventListener('click', function(e) {
+    e.preventDefault();
+    history.pushState(null, '', '#about');
+    showPage('about');
+  });
+
+  window.addEventListener('popstate', handleHash);
+  handleHash();
+</script>
+</body>
+</html>

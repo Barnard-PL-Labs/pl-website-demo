@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barnard PL Labs</title>
+  <title>FoRG — Formal Methods and Reasoning Group</title>
+  <link rel="icon" type="image/png" href="FoRG_logo_transparent.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
@@ -12,8 +13,8 @@
       --bg: #fafaf7;
       --text: #1a1a1a;
       --muted: #555;
-      --accent: #2a5298;
-      --accent-light: #e8edf8;
+      --accent: #1f2d7a;
+      --accent-light: #e3e9f8;
       --border: #ddd;
       --nav-height: 56px;
       --max-width: 760px;
@@ -60,6 +61,15 @@
       color: var(--text);
       text-decoration: none;
       margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .site-title img {
+      height: 38px;
+      width: auto;
+      display: block;
     }
 
     nav a.nav-link {
@@ -145,6 +155,15 @@
       margin-bottom: 6px;
     }
 
+    /* ── CALLOUT ── */
+    .callout {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      border-radius: 0 4px 4px 0;
+    }
+
     /* ── COMMENT PLACEHOLDER STYLE ── */
     .placeholder {
       background: var(--accent-light);
@@ -192,7 +211,12 @@
 
     /* ── TEAM MEMBER ── */
     .team-member {
-      margin-bottom: 16px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    #page-team h2 {
+      margin-top: 32px;
     }
 
     .team-member .name {
@@ -228,6 +252,60 @@
       margin-bottom: 8px;
     }
 
+    /* ── ABOUT HERO LOGO ── */
+    .about-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .about-hero img {
+      max-width: 260px;
+      width: 60%;
+      height: auto;
+    }
+
+    /* ── PROJECT ENTRY ── */
+    .project {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .project-thumb {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      object-position: top;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: block;
+    }
+
+    .project-body h2 {
+      margin-top: 0;
+    }
+
+    @media (max-width: 600px) {
+      .project {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── MISSION STATEMENT ── */
+    .mission {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.4;
+      text-align: center;
+      color: var(--accent);
+      max-width: 560px;
+      margin: 0 auto 56px;
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -242,9 +320,12 @@
 
 <header>
   <nav>
-    <a class="site-title" href="#" onclick="showPage('about')">Barnard PL Labs</a>
+    <a class="site-title" href="#" onclick="showPage('about')">
+      <img src="FoRG_logo_transparent.png" alt="FoRG logo" />
+      FoRG
+    </a>
     <a class="nav-link active" href="#" onclick="showPage('about')">About</a>
-    <a class="nav-link" href="#" onclick="showPage('research')">Research</a>
+    <a class="nav-link" href="#" onclick="showPage('projects')">Projects</a>
     <a class="nav-link" href="#" onclick="showPage('events')">Events</a>
     <a class="nav-link" href="#" onclick="showPage('publications')">Publications</a>
     <a class="nav-link" href="#" onclick="showPage('team')">Team</a>
@@ -257,67 +338,95 @@
 ════════════════════════════════════════════ -->
 <main>
   <section class="page active" id="page-about">
+    <div class="about-hero">
+      <img src="FoRG_logo_transparent.png" alt="Formal Methods and Reasoning Group logo" />
+    </div>
+
+    <p class="mission">
+      We build systems that<br />
+      interactively reason<br />
+      alongside humans
+    </p>
+
     <h1>About</h1>
 
     <p>
-      Barnard PL (Programming Languages) Labs is run by
-      <a href="http://www.marksantolucito.com/">Prof. Mark Santolucito</a>
-      at <a href="https://cs.barnard.edu/">Barnard College, Columbia University</a>.
+      The Formal Methods and Reasoning Group (FoRG) focuses on developing our understanding
+      of Automated Reasoning and how humans interface with these systems.
     </p>
 
-    <!-- ADD: A sentence or two about the lab's overarching mission/research focus -->
-    <div class="placeholder">[ Add a brief lab mission statement here. ]</div>
-
-    <!-- ADD: Any additional context about the lab's approach, values, or history -->
-    <div class="placeholder">[ Add any additional introductory content here. ]</div>
+    <div class="callout">
+      <strong>Fall 2026 recruiting:</strong> We look forward to recruiting Undergraduate and
+      MS students in the Fall.
+    </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
-       RESEARCH
+       PROJECTS
   ════════════════════════════════════════════ -->
-  <section class="page" id="page-research">
-    <h1>Research</h1>
+  <section class="page" id="page-projects">
+    <h1>Projects</h1>
 
-    <!-- ADD: Optional one-paragraph overview of the lab's research themes -->
-    <div class="placeholder">[ Add a short overview of the lab's research themes here. ]</div>
+    <div class="project">
+      <a href="https://r-papir.github.io/gamestudy/"><img class="project-thumb" src="img/stepbench.svg" alt="STEP-Bench puzzle grid" /></a>
+      <div class="project-body">
+        <h2>STEP-Bench</h2>
+        <p>
+          STEP-Bench (Symbolic Temporal Exploratory Puzzle Benchmark) is a series of interactive
+          reasoning puzzles for studying causal reasoning, incorporating eye-tracking to monitor
+          how participants solve temporal puzzle tasks.
+        </p>
+        <ul>
+          <li><a href="https://r-papir.github.io/gamestudy/">STEP-Bench game study</a></li>
+        </ul>
+      </div>
+    </div>
 
-    <h2>TSL</h2>
-    <p>
-      Temporal Stream Logic allows users to give specifications about how a program should behave
-      over time, and then automatically synthesize a program that is guaranteed to meet that
-      specification. The current goal of this work is to build a TSL-to-Arduino pipeline.
-    </p>
-    <ul>
-      <li><a href="https://barnard-pl-labs.github.io/tsl-api/">TSL API</a> — TSL synthesis on a serverless cloud infrastructure, enabling easy experimentation without local installs.</li>
-      <li><a href="https://barnard-pl-labs.github.io/moveCube/">TSL Move Cube</a> — A TSL playground focused on interactive animations.</li>
-      <li><a href="https://ravenrothkopf.com/snakeTSL/">The Snake</a> — A reactive controller for the Snake game synthesized with TSL.</li>
-      <li><a href="https://barnard-pl-labs.github.io/tslBlocks/">Block-based Editor for Temporal Logic Program Synthesis</a> — Lowering the barrier to entry for writing TSL specifications.</li>
-      <li><a href="http://tslsynthesissynthesizer.com/">Interactive Reactive Synthesis for Music Synthesizers with TSL</a></li>
-      <li><a href="https://github.com/Barnard-PL-Labs/temos">TSL-MT (TSL-Modulo Theories)</a> — A synthesis engine now integrated into the mainline <a href="https://github.com/Barnard-PL-Labs/tsltools">tsltools repo</a>.</li>
-    </ul>
+    <div class="project">
+      <a href="https://manhattanreasoning.com/"><img class="project-thumb" src="img/fpgas.png" alt="A rack of FPGA boards" /></a>
+      <div class="project-body">
+        <h2>Manhattan Reasoning</h2>
+        <p>
+          Manhattan Reasoning is a platform for teaching AI systems to reason about hardware design,
+          combining cloud-based FPGA access, sandbox environments, and open-source toolchains built
+          on technologies like Yosys and nextpnr — bringing hardware reasoning to everyone.
+        </p>
+        <ul>
+          <li><a href="https://manhattanreasoning.com/">manhattanreasoning.com</a></li>
+        </ul>
+      </div>
+    </div>
 
-    <h2>Static Analysis for IaC</h2>
-    <p>
-      The goal of this project is to build static analysis tools for cost analysis of
-      Infrastructure as Code (IaC). In particular, in order to statically predict the costs of
-      an IaC deployment, usage estimates are provided by users — enabling what-if analyses such
-      as: what if my website traffic increases threefold, or processes half as much data?
-    </p>
-    <ul>
-      <li><a href="https://github.com/Barnard-PL-Labs/IaCAnalysis.git">Static Analysis for IaC Tool</a></li>
-    </ul>
+    <div class="project">
+      <a href="https://arxiv.org/abs/2510.27544"><img class="project-thumb" src="img/tempobench.png" alt="An automaton diagram from the TempoBench benchmark" /></a>
+      <div class="project-body">
+        <h2>TempoBench</h2>
+        <p>
+          TempoBench is a formal benchmark for evaluating counterfactual causal reasoning in large
+          language models. While frontier LLMs can simulate systems forward with high accuracy, their
+          performance drops sharply when asked to identify which inputs were necessary for a given
+          output — a gap with important implications for debugging and root cause analysis.
+        </p>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2510.27544">TempoBench: Reasoning Execution Without Causal Attribution Is Just Simulation</a> (arXiv preprint)</li>
+        </ul>
+      </div>
+    </div>
 
-    <h2>Spiral Analysis</h2>
-    <p>
-      The goal of this project is to migrate legacy medical software to a new computing
-      infrastructure, while maintaining guarantees about its clinically-relevant behavior.
-      We are focused on the Spiral Analysis tool from Dr. Seth Pullman's lab, which quantifies
-      upper limb tremor disorders.
-    </p>
-    <p><em>No public link at this time.</em></p>
-
-    <!-- ADD: Add new projects here following the same <h2> / <p> / <ul> pattern -->
-    <div class="placeholder">[ Add new or additional projects here. ]</div>
+    <div class="project">
+      <a href="https://github.com/Barnard-PL-Labs/MaxPyLang"><img class="project-thumb" src="img/maxpylang.webp" alt="The MaxPy fish mascot" /></a>
+      <div class="project-body">
+        <h2>MaxPyLang</h2>
+        <p>
+          MaxPyLang is a Python package for programmatically generating and editing MaxMSP patches —
+          placing objects and building connections that would be tedious to create through the
+          visual interface alone.
+        </p>
+        <ul>
+          <li><a href="https://github.com/Barnard-PL-Labs/MaxPyLang">MaxPyLang on GitHub</a></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
@@ -375,7 +484,12 @@
 
     <h2>Archived Projects</h2>
     <ul>
-      <li><a href="http://161.35.14.211/">Synthesis-enabled Live Coding</a></li>
+      <li><a href="https://barnard-pl-labs.github.io/tsl-api/">TSL API</a> — TSL synthesis on a serverless cloud infrastructure, enabling easy experimentation without local installs.</li>
+      <li><a href="https://barnard-pl-labs.github.io/moveCube/">TSL Move Cube</a> — A TSL playground focused on interactive animations.</li>
+      <li><a href="https://ravenrothkopf.com/snakeTSL/">The Snake</a> — A reactive controller for the Snake game synthesized with TSL.</li>
+      <li><a href="https://barnard-pl-labs.github.io/tslBlocks/">Block-based Editor for Temporal Logic Program Synthesis</a> — Lowering the barrier to entry for writing TSL specifications.</li>
+      <li><a href="http://tslsynthesissynthesizer.com/">Interactive Reactive Synthesis for Music Synthesizers with TSL</a></li>
+      <li><a href="https://github.com/Barnard-PL-Labs/temos">TSL-MT (TSL-Modulo Theories)</a> — A synthesis engine now integrated into the mainline <a href="https://github.com/Barnard-PL-Labs/tsltools">tsltools repo</a>.</li>
       <!-- ADD: Additional archived project links here -->
     </ul>
   </section>
@@ -392,25 +506,55 @@
       <div class="role">Principal Investigator, Barnard College</div>
     </div>
 
+    <h2>Research Scientists</h2>
+    <div class="team-member">
+      <div class="name"><a href="https://www.milescharff.com/">Miles Scharff</a></div>
+      <div class="role">Research Scientist</div>
+    </div>
+    <div class="team-member">
+      <div class="name"><a href="https://rpapir.com/">Rachel Papirmeister</a></div>
+      <div class="role">Research Scientist (Post-bacc)</div>
+    </div>
+
     <h2>Current Students</h2>
-    <!-- ADD: Current students using the format below.
-         Example:
-         <div class="team-member">
-           <div class="name"><a href="#">Student Name</a></div>
-           <div class="role">PhD Student / Undergraduate Researcher / etc.</div>
-         </div>
-    -->
-    <div class="placeholder">[ Add current students here. ]</div>
+    <div class="team-member">
+      <div class="name"><a href="https://nikolausholzer.com/">Nikolaus Holzer</a></div>
+      <div class="role">PhD Student</div>
+    </div>
+    <div class="team-member">
+      <div class="name"><a href="https://github.com/cscaff">Christian Scaff</a></div>
+      <div class="role">Masters Student</div>
+    </div>
+    <div class="team-member">
+      <div class="name">Chris Hyorok Lee</div>
+      <div class="role">Masters Student</div>
+    </div>
 
     <h2>Alumni</h2>
-    <!-- ADD: Former lab members and their current positions.
-         Example:
-         <div class="team-member">
-           <div class="name">Alumni Name</div>
-           <div class="role">Now at: Company / Program</div>
-         </div>
-    -->
-    <div class="placeholder">[ Add lab alumni here. ]</div>
+    <div class="team-member">
+      <div class="name"><a href="https://wfishell.github.io/">William Fishell</a></div>
+      <div class="role">MS &rarr; PhD student, UC San Diego</div>
+    </div>
+    <div class="team-member">
+      <div class="name"><a href="https://leyicui-angel.github.io/">Angel Leyi Cui</a></div>
+      <div class="role">BA/MS &rarr; PhD student, Carnegie Mellon University</div>
+    </div>
+    <div class="team-member">
+      <div class="name"><a href="https://ravenrothkopf.com/">Raven Rothkopf</a></div>
+      <div class="role">BA &rarr; PhD student, UC San Diego (NSF GRFP)</div>
+    </div>
+    <div class="team-member">
+      <div class="name"><a href="https://www.feitongqiao.com/">Leo Feitong Qiao</a></div>
+      <div class="role">MS &rarr; Reinforce Labs</div>
+    </div>
+    <div class="team-member">
+      <div class="name"><a href="https://www.wonhyuk.com/">Wonhyuk Choi</a></div>
+      <div class="role">MS &rarr; Meta</div>
+    </div>
+    <div class="team-member">
+      <div class="name"><a href="https://shmuelberman.com/">Shmuel Berman</a></div>
+      <div class="role">BS &rarr; PhD student, Princeton University</div>
+    </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
@@ -419,8 +563,11 @@
   <section class="page" id="page-contact">
     <h1>Contact</h1>
 
-    <!-- ADD: A brief note about who to contact and for what (e.g. prospective students, collaborators) -->
-    <div class="placeholder">[ Add a brief note about how and why to get in touch. ]</div>
+    <p>
+      Interested in joining the group or collaborating? We'd love to hear from you —
+      prospective students (see our Fall 2026 recruiting note on the About page),
+      potential collaborators, and anyone curious about our work are welcome to reach out.
+    </p>
 
     <div class="contact-info">
       <p>
@@ -429,20 +576,15 @@
         Department of Computer Science
       </p>
 
-      <!-- ADD: Email address -->
-      <p><strong>Email:</strong> <!-- ADD EMAIL HERE --></p>
+      <p><strong>Email:</strong> <a href="mailto:msantolu@barnard.edu">msantolu@barnard.edu</a></p>
 
-      <!-- ADD: Office location / office hours if applicable -->
-      <div class="placeholder">[ Add office location and/or office hours here. ]</div>
-
-      <!-- ADD: Links to GitHub org, Twitter/X, or other relevant profiles -->
-      <div class="placeholder">[ Add links to lab GitHub, social profiles, or other contact channels. ]</div>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Barnard-PL-Labs">github.com/Barnard-PL-Labs</a></p>
     </div>
   </section>
 </main>
 
 <footer>
-  &copy; <span id="year"></span> Barnard PL Labs &mdash; Barnard College, Columbia University
+  &copy; <span id="year"></span> Formal Methods and Reasoning Group (FoRG) &mdash; Barnard College, Columbia University
 </footer>
 
 <script>
@@ -466,7 +608,7 @@
   // ── Handle browser back/forward via hash
   function handleHash() {
     const hash = window.location.hash.replace('#', '') || 'about';
-    const valid = ['about', 'research', 'events', 'publications', 'team', 'contact'];
+    const valid = ['about', 'projects', 'events', 'publications', 'team', 'contact'];
     if (valid.includes(hash)) showPage(hash);
   }
 

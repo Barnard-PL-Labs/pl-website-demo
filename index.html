@@ -207,8 +207,10 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .pub-entry:last-child {
+    .pub-entry:last-child,
+    .pub-entry:has(+ h2) {
       border-bottom: none;
+      padding-bottom: 0;
     }
 
     .pub-title {
@@ -684,10 +686,151 @@
     <h1>Publications</h1>
 
     <p>
-      See also: <a href="http://www.marksantolucito.com/research.html">Prof. Santolucito's full paper list</a>.
+      Selected publications from the group. For the complete list, see
+      <a href="https://scholar.google.com/citations?hl=en&user=cGC93mIAAAAJ">Google Scholar</a>.
     </p>
 
-    <div class="placeholder">[ TODO ]</div>
+    <!-- ADD: New papers at the top of the matching year, copying a <div class="pub-entry"> block. -->
+
+    <h2>2027</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">Mining Beyond the Bools: Learning Data Transformations and Temporal Specifications</div>
+      <div class="pub-authors">Sam Kouteili, William Fishell, Mark Santolucito, Christian Scaff, Ruzica Piskac</div>
+      <div class="pub-venue">ESOP 2027 (to appear)</div>
+    </div>
+
+    <h2>2026</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">Lattice Deduction Transformers</div>
+      <div class="pub-authors">Liam Davis, Leopold Haller, Alberto Alfarano, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://arxiv.org/abs/2605.08605">NeurIPS 2026</a></div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Measuring and Reducing Semantic Entropy in LTL Guardrail Generation</div>
+      <div class="pub-authors">Maria Hwang, Rachel Papirmeister, Mark Santolucito</div>
+      <div class="pub-venue">VSTTE 2026</div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Learning GR(1) Specifications from Traces</div>
+      <div class="pub-authors">Sam Kouteili, William Fishell, Mark Santolucito, Ruzica Piskac</div>
+      <div class="pub-venue">FMCAD 2026</div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">User Engagement With Intermediate Representations in LLM-Assisted Audio Programming</div>
+      <div class="pub-authors">Chris Hyorok Lee, Miles Scharff, Katie Wang, Mark Santolucito</div>
+      <div class="pub-venue">VL/HCC 2026</div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Cost-Efficient Theorem Proving via Agent Orchestration in Program Verification</div>
+      <div class="pub-authors">Shuangjie Yao, Nikolaus Holzer, Mark Santolucito, Baishakhi Ray, Suman Jana, Dongdong She</div>
+      <div class="pub-venue">VERICODEGEN workshop at NeurIPS 2026</div>
+    </div>
+
+    <h2>2025</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">Embedding Alignment in Code Generation for Audio</div>
+      <div class="pub-authors">Sam Kouteili, Hiren Madhu, George Typaldos, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://arxiv.org/abs/2508.05473">AI for Music workshop at NeurIPS 2025</a></div>
+    </div>
+
+    <h2>2024</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">Statically Inferring Usage Bounds for Infrastructure as Code</div>
+      <div class="pub-authors">Feitong Qiao, Aryana Mohammadi, Jürgen Cito, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cGC93mIAAAAJ&sortby=pubdate&citation_for_view=cGC93mIAAAAJ:r0BpntZqJG4C">VSTTE 2024</a></div>
+    </div>
+
+    <h2>2023</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">MaxPy: An Open-Source Python Package for Text-Based Generation of MaxMSP Patches</div>
+      <div class="pub-authors">Ranger Liu, Satchel Peterson, Richard Lee, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cGC93mIAAAAJ&sortby=pubdate&citation_for_view=cGC93mIAAAAJ:j3f4tGmQtD8C">NIME 2023</a></div>
+    </div>
+
+    <h2>2022</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">Can Reactive Synthesis and Syntax-Guided Synthesis Be Friends?</div>
+      <div class="pub-authors">Wonhyuk Choi, Ruzica Piskac, Bernd Finkbeiner, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://www.marksantolucito.com/papers/pldi2022.pdf">PLDI 2022</a></div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Learning CI Configuration Correctness for Early Build Feedback</div>
+      <div class="pub-authors">Mark Santolucito, Jialu Zhang, Ennan Zhai, Jürgen Cito, Ruzica Piskac</div>
+      <div class="pub-venue"><a href="https://www.marksantolucito.com/papers/saner2022.pdf">SANER 2022</a></div>
+    </div>
+
+    <h2>2021</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">TSL Synthesis Synthesizer: Reconfigurable Signal Flows through Program Synthesis</div>
+      <div class="pub-authors">Michel Vazirani, Wonhyuk Choi, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://www.marksantolucito.com/papers/nime21.pdf">NIME 2021</a></div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Analyzing Infrastructure as Code to Prevent Intra-update Sniping Vulnerabilities</div>
+      <div class="pub-authors">Julien Lepiller, Ruzica Piskac, Martin Schaef, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://www.marksantolucito.com/papers/tacas2021.pdf">TACAS 2021</a></div>
+    </div>
+
+    <h2>2020</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">Grammar Filtering for Syntax Guided Synthesis</div>
+      <div class="pub-authors">Kairo Morton, William Hallahan, Elven Shum, Ruzica Piskac, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://www.marksantolucito.com/papers/aaai2020.pdf">AAAI 2020</a> (Oral Presentation)</div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Formal Methods and Computing Identity-based Mentorship for Early Stage Researchers</div>
+      <div class="pub-authors">Mark Santolucito, Ruzica Piskac</div>
+      <div class="pub-venue"><a href="https://www.marksantolucito.com/papers/sigcse2020.pdf">SIGCSE 2020</a></div>
+    </div>
+
+    <h2>2019</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">Temporal Stream Logic: Synthesis Beyond the Bools</div>
+      <div class="pub-authors">Bernd Finkbeiner, Felix Klein, Ruzica Piskac, Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://www.marksantolucito.com/papers/cav-19.pdf">CAV 2019</a></div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Live Programming By Example</div>
+      <div class="pub-authors">Mark Santolucito, William Hallahan, Ruzica Piskac</div>
+      <div class="pub-venue"><a href="https://www.marksantolucito.com/papers/livepbe-interface.pdf">CHI 2019 Extended Abstract</a></div>
+    </div>
+
+    <h2>2017 and earlier</h2>
+
+    <div class="pub-entry">
+      <div class="pub-title">Synthesizing Configuration File Specifications with Association Rule Learning</div>
+      <div class="pub-authors">Mark Santolucito, Ennan Zhai, Rahul Dhodapkar, Aaron Shim, Ruzica Piskac</div>
+      <div class="pub-venue"><a href="https://dl.acm.org/citation.cfm?doid=3152284.3133888">OOPSLA 2017</a></div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Version Space Learning for Verification on Temporal Differentials</div>
+      <div class="pub-authors">Mark Santolucito</div>
+      <div class="pub-venue"><a href="https://dl.acm.org/citation.cfm?doid=3092703.3098238">ISSTA 2017</a></div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-title">Probabilistic Automated Language Learning for Configuration Files</div>
+      <div class="pub-authors">Mark Santolucito, Ennan Zhai, Ruzica Piskac</div>
+      <div class="pub-venue"><a href="http://dx.doi.org/10.1007/978-3-319-41540-6_5">CAV 2016</a></div>
+    </div>
 
   </section>
 

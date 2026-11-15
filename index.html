@@ -270,6 +270,22 @@
     /* ── TALK ── */
     .talk {
       margin-top: 24px;
+      scroll-margin-top: calc(var(--nav-height) + 20px);
+    }
+
+    .talk-anchor {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      color: var(--muted);
+      opacity: 0.45;
+      margin-left: 4px;
+    }
+
+    .talk-anchor:hover,
+    .talk-anchor:focus-visible {
+      opacity: 1;
+      color: var(--accent);
+      text-decoration: none;
     }
 
     .talk + .talk {
@@ -576,9 +592,12 @@
 
     <!-- ADD: Further talks by copying the <article class="talk"> block below.
          When a talk has happened, move it under the "Past" heading at the bottom of this section. -->
-    <article class="talk" id="talk-imada">
+    <article class="talk" id="imada">
       <div class="talk-label">Guest Lecture</div>
-      <h3 class="talk-title">A Hoare Logic for Continuous-Time Stochastic Processes</h3>
+      <h3 class="talk-title">
+        A Hoare Logic for Continuous-Time Stochastic Processes
+        <a class="talk-anchor" href="#imada" aria-label="Link to this talk" title="Link to this talk">#</a>
+      </h3>
       <p class="talk-speaker">
         <a href="https://keikun555.github.io/">Kei Imada</a>, Cornell University
       </p>
@@ -771,8 +790,16 @@
   function handleHash() {
     const hash = window.location.hash.replace('#', '') || 'about';
     const valid = ['about', 'projects', 'events', 'publications', 'team', 'contact'];
-    if (valid.includes(hash)) showPage(hash);
+    if (valid.includes(hash)) { showPage(hash); return; }
+    // Deep link to an item inside a page, e.g. #imada
+    const target = document.getElementById(hash);
+    const page = target && target.closest('.page');
+    if (page) {
+      showPage(page.id.replace('page-', ''));
+      target.scrollIntoView();
+    }
   }
+  window.addEventListener('hashchange', handleHash);
 
   // Update hash on nav click
   document.querySelectorAll('.nav-link').forEach(a => {
